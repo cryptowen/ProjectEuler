@@ -22,17 +22,34 @@ grid = '''
 01 70 54 71 83 51 54 69 16 92 33 48 61 43 52 01 89 19 67 48
 '''
 
-array = [i.split(' ') for i in grid.strip().split('\n')]
+array = [line.split(' ') for line in grid.strip().split('\n')]
 length = len(array)
 n = 4
 
 # up and down
-list_1 = [
-    array[i][j] *
-    for i in range(length)
-    for j in range(length - n)
-]
+func = lambda l: reduce(lambda x,y:int(x)*int(y), l)
 
+debug = False
+if debug:
+    for n_length_list in ([array[i][j+k] for k in range(n)] for i in range(length) for j in range(length-n+1)):
+        print n_length_list, func(n_length_list)
+
+
+max_product_up_and_down = max(
+    func([array[i][j+k] for k in range(n)]) for i in range(length) for j in range(length-n+1)
+)
 # left and right
+max_product_left_and_right = max(
+    func([array[i+k][j] for k in range(n)]) for i in range(length-n+1) for j in range(length)
+)
+# left_up to right_down diagonally
+max_product_diagonally_lu_to_rd = max(
+    func([array[i+k][j+k] for k in range(n)]) for i in range(length-n+1) for j in range(length-n+1)
+)
 
-# diagonally
+# right_up to left_down diagonally
+max_product_diagonally_ru_to_ld = max(
+    func([array[i-k][j+k] for k in range(n)]) for i in range(n-1, length) for j in range(length-n+1)
+)
+
+print max(max_product_up_and_down, max_product_left_and_right, max_product_diagonally_lu_to_rd, max_product_diagonally_ru_to_ld)
