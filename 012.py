@@ -33,7 +33,6 @@ def fjzys(num):
     pass
 
 
-
 # method 1: simplest and most slow
 # def num_of_divisors(n):
 #     return sum( 1 for i in xrange(1, n+1) if n%i==0 )
