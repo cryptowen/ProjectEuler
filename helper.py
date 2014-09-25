@@ -3,16 +3,33 @@
 __author__ = 'Hu Wenchao'
 
 import math
+import primes
 
-def div_frac(a, b=1):
-    """ 返回b/a的循环小数表示形式
-    >>> div_frac(2)
-    0.5
-    >>> div_frac(3)
-    0.(3)
-    >>> div_frac(7)
-    0.(142857)
+def is_palindromic(s):
+    """ 判断字符串s是不是回文字符串
+    >>> is_palindromic('12345')
+    False
+    >>> is_palindromic('010')
+    True
     """
+    assert type(s) == str
+    return s == s[::-1]
+    # for i in range(len(s)/2):
+    #     if s[i] != s[-i-1]:
+    #         return False
+    # return True
+
+is_prime = lambda n: n in primes
+
+# def div_frac(a, b=1):
+#     """ 返回b/a的循环小数表示形式
+#     >>> div_frac(2)
+#     0.5
+#     >>> div_frac(3)
+#     0.(3)
+#     >>> div_frac(7)
+#     0.(142857)
+#     """
     
 
 def fib():

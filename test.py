@@ -2,9 +2,15 @@
 # -*- coding: utf-8 –*-
 __author__ = 'Hu Wenchao'
 
-from helper import rwh_primes2
+class Test(object):
+    """docstring for Test"""
+    def __init__(self):
+        self.arg = 'hello'
 
-# primes = rwh_primes2()
-# with open('primes', 'w') as fp:
-# 	fp.write('primes=')
-# 	fp.write(str(primes))
+    def printarg(self):
+        print self.arg
+
+if __name__ == '__main__':
+    t = Test()
+    t.printarg()        
+        
